@@ -40,7 +40,6 @@ function Auth({insideRegister}) {
         const result=await registerApi(userDetails)
         console.log(result);
         if(result.status==200){
-          setIsAuthorized(true)
           setUserDetails({username:"",email:"",password:""})
           navigate('/login')
           
@@ -84,6 +83,8 @@ function Auth({insideRegister}) {
           sessionStorage.setItem("user",JSON.stringify(result.data.user))
           sessionStorage.setItem("token",result.data.token)
           setIsLogin(true)
+          setIsAuthorized(true)
+
           
          
           setTimeout(() => {
